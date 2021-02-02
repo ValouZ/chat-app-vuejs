@@ -28,17 +28,30 @@
         :sender="false"
       />
       <PhoneMessagePhoto
-        :imgs="[
-          '@/assets/dog-image-1.jpg',
-          '@/assets/dog-image-2.jpg',
-          '@/assets/dog-image-3.jpg',
-        ]"
+        :imgs="['dog-image-1.jpg', 'dog-image-2.jpg', 'dog-image-3.jpg']"
+        :sender="true"
       />
       <PhoneMessage
         msg="Here are a few pictures. She’s a happy girl!"
         :sender="true"
       />
-      <PhoneMessage msg="Can you make it?" :sender="true" />
+      <PhoneMessage msg="Can you make it?" :sender="true" class="last" />
+      <PhoneMessage
+        msg="She looks so happy! The time we discussed works. How long shall I take her out for?"
+        :sender="false"
+      />
+      <PhoneMessage
+        msg="30 minute walk"
+        :price="29"
+        :sender="false"
+        :radio="true"
+      />
+      <PhoneMessage
+        msg="1 hour walk"
+        :price="49"
+        :sender="false"
+        :radio="true"
+      />
       <div class="writing-zone">
         <p>Type a message...</p>
         <button class="button-send">
@@ -70,7 +83,7 @@ export default {
 .phone {
   width: 247px;
   height: 505px;
-  background: black;
+  background: $white;
   border-radius: 30px;
   display: flex;
   align-items: center;
@@ -134,6 +147,10 @@ export default {
   border: 1px solid $white;
   width: 24px;
   margin: 0 8px;
+}
+
+.last{
+  margin-bottom: 16px;
 }
 
 .writing-zone {

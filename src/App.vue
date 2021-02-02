@@ -20,7 +20,7 @@ export default {
 <style lang="scss">
 @import "@/scss/styles.scss";
 #app {
-  background: $radio-button-outline; //$app-background
+  background: $background; //$app-background
   display: flex;
   flex-direction: column;
   justify-content: space-around;
