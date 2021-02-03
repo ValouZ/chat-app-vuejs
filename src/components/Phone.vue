@@ -14,7 +14,7 @@
       <PhoneMessagePhoto
         :imgs="['dog-image-1.jpg', 'dog-image-2.jpg', 'dog-image-3.jpg']"
         :sender="true"
-        class="first"
+        :class="'first'"
       />
       <PhoneMessage
         msg="Here are a few pictures. She’s a happy girl!"
@@ -24,7 +24,7 @@
       <PhoneMessage
         msg="She looks so happy! The time we discussed works. How long shall I take her out for?"
         :sender="false"
-        class="first"
+        :class="'first'"
       />
       <PhoneMessage
         msg="30 minute walk"
@@ -73,7 +73,9 @@ export default {
   position: relative;
   margin-bottom: 64px;
   box-shadow: 0px 30px 60px -10px rgba(62, 39, 83, 0.251202);
-
+  @include desktop{
+    margin-right: 125px;
+  }
   .phone__top {
     @include absolute($left: 50%, $top: 0);
     height: 29px;
@@ -92,9 +94,6 @@ export default {
     border-radius: 20px;
     overflow: hidden;
   }
-}
-.first {
-  margin-top: 16px;
 }
 
 .writing-zone {

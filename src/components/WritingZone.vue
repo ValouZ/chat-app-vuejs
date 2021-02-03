@@ -1,6 +1,6 @@
 <template>
   <div class="writing-zone">
-    <textarea type="text" placeholder="Type a message..."></textarea>
+    <textarea placeholder="Type a message..."></textarea>
     <button class="button-send">
       <img src="../assets/arrow-send.svg" alt="Click me the send a message" />
     </button>

@@ -19,14 +19,19 @@ export default {
 .description {
   max-width: 311px;
   text-align: center;
+  @include desktop{
+    max-width: 445px;text-align: left;
+  }
 }
 h1 {
   font-weight: 500;
   margin-bottom: 24px;
   color: $main-heading;
+  font-size: 40px;
 }
 p {
   line-height: 28px;
+  font-size: 16px;
   color: $paragraph;
 }
 </style>

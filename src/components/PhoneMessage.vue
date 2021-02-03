@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="sender == false && radio == true"
-    class="message message--not-sender message--radio"
+    :class="'message message--not-sender message--radio ' + firstClass[0]"
   >
     <input name="time-not-sender" :id="'time' + countRadio" type="radio" />
     <label class="radio" :for="'time' + countRadio">{{ msg }} </label>
@@ -11,7 +11,7 @@
   </div>
   <div
     v-if="sender == true && radio == true"
-    class="message message--sender message--radio"
+    :class="'message message--sender message--radio ' + firstClass[0]"
   >
     <input name="time-sender" id="time" type="radio" />
     <label class="radio" for="time">{{ msg }} </label>
@@ -20,13 +20,13 @@
   </div>
   <div
     v-else-if="sender == false && radio == false"
-    class="message message--not-sender"
+    :class="'message message--not-sender ' + firstClass[0]"
   >
     {{ msg }}
   </div>
   <div
     v-else-if="sender == true && radio == false"
-    class="message message--sender"
+    :class="'message message--sender ' + firstClass[0]"
   >
     {{ msg }}
   </div>
@@ -48,6 +48,23 @@ export default {
     price: Number,
     sender: Boolean,
     radio: Boolean,
+    class: String,
+  },
+  computed: {
+    // returns a list of 1 string referencing the class props
+    firstClass() {
+      let result = [];
+      // Look for all the component props and get an array of all its
+      // enumerable [key, value] pairs
+      for (let [propKey, propValue] of Object.entries(this.$props)) {
+        if (`${propKey}` == "class") {
+          // Add the prop to the class as '<key><value>'
+          // ie. xs prop with a value of 3 results in 'xs3'
+          result.push(`${propValue}`);
+        }
+      }
+      return result;
+    },
   },
   methods: {
     increment() {
@@ -138,5 +155,9 @@ label {
   width: 12px;
   z-index: 5;
   transition: border 0.25s linear;
+}
+
+.first {
+  margin-top: 16px;
 }
 </style>

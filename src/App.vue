@@ -2,7 +2,7 @@
   <div class="container">
     <div class="purple-shape"></div>
     <div class="low-white-shape"></div>
-    <Phone />
+    <Phone class="scale"/>
     <Description />
   </div>
 </template>
@@ -31,9 +31,12 @@ export default {
   padding: 64px 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   overflow: hidden;
+  @include desktop {
+    flex-direction: row;
+  }
 }
 
 .purple-shape {
@@ -44,6 +47,11 @@ export default {
   top: -509px;
   background: linear-gradient(225deg, #e844ff 0%, #8739ff 100%);
   border-radius: 255px;
+  transition: 1s;
+  @include desktop {
+    left: -90px;
+    top: -318px;
+  }
 }
 
 .low-white-shape {
@@ -52,11 +60,21 @@ export default {
   height: 1018px;
   right: 0;
   top: 427px;
-  // garder la forme toujours a moitié sur l'écran sur la droite
-  transform: translateX(50%);
+  right: -323px;
   background: linear-gradient(225deg, #e844ff 0%, #8739ff 100%);
   mix-blend-mode: normal;
   opacity: 0.03;
   border-radius: 255px;
+  transition: 1s;
+  @include desktop {
+    top: 119px;
+    right: -185px;
+  }
+}
+
+.scale{
+  @include desktop{
+    transform: scale(1.3);
+  }
 }
 </style>

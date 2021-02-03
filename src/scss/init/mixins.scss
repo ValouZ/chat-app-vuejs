@@ -1,4 +1,4 @@
-@mixin absolute ($top: none, $left: none, $bottom: none, $right: none){
+@mixin absolute($top: none, $left: none, $bottom: none, $right: none) {
   position: absolute;
   top: $top;
   left: $left;
@@ -9,5 +9,11 @@
   }
   @if $left == 50% {
     transform: translateX(-50%);
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1440px) {
+    @content;
   }
 }
