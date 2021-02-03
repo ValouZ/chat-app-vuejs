@@ -23,10 +23,6 @@ export default {
 
 <style lang="scss">
 @import "@/scss/styles.scss";
-#app {
-  //$app-background
-  min-height: 100vh;
-}
 
 .container {
   position: relative;
