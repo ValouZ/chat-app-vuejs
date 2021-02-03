@@ -31,7 +31,6 @@ export default {};
     height: 100%;
     padding-top: 10px;
     width: 160px;
-    border-radius: inherit;
     font-size: 9px;
     color: $chat-on-the-right;
     &::placeholder {
