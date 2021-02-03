@@ -52,15 +52,7 @@
         :sender="false"
         :radio="true"
       />
-      <div class="writing-zone">
-        <p>Type a message...</p>
-        <button class="button-send">
-          <img
-            src="../assets/arrow-send.svg"
-            alt="Click me the send a message"
-          />
-        </button>
-      </div>
+      <WritingZone />
     </div>
   </section>
 </template>
@@ -68,11 +60,13 @@
 <script>
 import PhoneMessage from "@/components/PhoneMessage.vue";
 import PhoneMessagePhoto from "@/components/PhoneMessagePhoto.vue";
+import WritingZone from "@/components/WritingZone.vue";
 export default {
   name: "Phone",
   components: {
     PhoneMessage,
     PhoneMessagePhoto,
+    WritingZone,
   },
 };
 </script>
@@ -89,6 +83,8 @@ export default {
   align-items: center;
   justify-content: center;
   position: relative;
+  margin-bottom: 64px;
+  box-shadow: 0px 30px 60px -10px rgba(62, 39, 83, 0.251202);
 
   .phone__top {
     @include absolute($left: 50%, $top: 0);
@@ -149,32 +145,11 @@ export default {
   margin: 0 8px;
 }
 
-.last{
+.last {
   margin-bottom: 16px;
 }
 
 .writing-zone {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   @include absolute($bottom: 10px, $left: 50%);
-  width: 213px;
-  height: 33px;
-  background: $white;
-  border-radius: 20px;
-  p {
-    font-size: 9px;
-    color: $placeholder-text;
-    margin-left: 20px;
-  }
-}
-
-.button-send {
-  height: 24px;
-  width: 24px;
-  border-radius: 100%;
-  border: none;
-  background: $main-heading;
-  margin-right: 5px;
 }
 </style>

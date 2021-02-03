@@ -26,6 +26,7 @@ h1 {
   color: $main-heading;
 }
 p {
+  line-height: 28px;
   color: $paragraph;
 }
 </style>
