@@ -50,13 +50,13 @@ export default {
   position: absolute;
   width: 510px;
   height: 1018px;
-  left: 188px;
+  right: 0;
   top: 427px;
-
+  // garder la forme toujours a moitié sur l'écran sur la droite
+  transform: translateX(50%);
   background: linear-gradient(225deg, #e844ff 0%, #8739ff 100%);
   mix-blend-mode: normal;
   opacity: 0.03;
   border-radius: 255px;
-  transform: matrix(1, 0, 0, -1, 0, 0);
 }
 </style>
