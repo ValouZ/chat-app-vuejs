@@ -2,23 +2,7 @@
   <section class="phone">
     <div class="phone__top"></div>
     <div class="phone__screen">
-      <header class="user">
-        <div class="user__content">
-          <div class="left">
-            <img
-              src="../assets/arrow.svg"
-              alt="Get back in the app"
-              class="arrow"
-            />
-            <img class="avatar" src="../assets/avatar.jpg" alt="Avatar" />
-            <div class="left__info">
-              <h2>Samuel Green</h2>
-              <p>Available to Walk</p>
-            </div>
-          </div>
-          <img src="../assets/dots.svg" alt="Tree dots to show more content" />
-        </div>
-      </header>
+      <UserTopSection name="Samuel Green" :free="true" />
       <PhoneMessage
         msg="That sounds great. I’d be happy to discuss more."
         :sender="false"
@@ -30,15 +14,17 @@
       <PhoneMessagePhoto
         :imgs="['dog-image-1.jpg', 'dog-image-2.jpg', 'dog-image-3.jpg']"
         :sender="true"
+        class="first"
       />
       <PhoneMessage
         msg="Here are a few pictures. She’s a happy girl!"
         :sender="true"
       />
-      <PhoneMessage msg="Can you make it?" :sender="true" class="last" />
+      <PhoneMessage msg="Can you make it?" :sender="true" />
       <PhoneMessage
         msg="She looks so happy! The time we discussed works. How long shall I take her out for?"
         :sender="false"
+        class="first"
       />
       <PhoneMessage
         msg="30 minute walk"
@@ -61,12 +47,14 @@
 import PhoneMessage from "@/components/PhoneMessage.vue";
 import PhoneMessagePhoto from "@/components/PhoneMessagePhoto.vue";
 import WritingZone from "@/components/WritingZone.vue";
+import UserTopSection from "@/components/UserTopSection.vue";
 export default {
   name: "Phone",
   components: {
     PhoneMessage,
     PhoneMessagePhoto,
     WritingZone,
+    UserTopSection,
   },
 };
 </script>
@@ -105,48 +93,8 @@ export default {
     overflow: hidden;
   }
 }
-
-.user {
-  background: linear-gradient(225deg, $light-magenta 0%, $light-violet 100%);
-  width: 100%;
-  height: 66px;
-  margin-bottom: 11px;
-  border-radius: 20px 20px 6px 6px;
-  position: relative;
-  .user__content {
-    display: flex;
-    justify-content: space-between;
-    width: 196px;
-    @include absolute($left: 50%, $bottom: 12px);
-  }
-}
-
-.left {
-  display: flex;
-  align-items: center;
-  .arrow {
-    width: 4px;
-    height: 10px;
-  }
-  h2 {
-    font-size: 11px;
-    color: $white;
-    font-weight: 500;
-  }
-  p {
-    font-size: 8px;
-    color: $sub-heading;
-  }
-}
-.avatar {
-  border-radius: 100%;
-  border: 1px solid $white;
-  width: 24px;
-  margin: 0 8px;
-}
-
-.last {
-  margin-bottom: 16px;
+.first {
+  margin-top: 16px;
 }
 
 .writing-zone {
