@@ -3,41 +3,43 @@
     <div class="phone__top"></div>
     <div class="phone__screen">
       <UserTopSection name="Samuel Green" :free="true" />
-      <PhoneMessage
-        msg="That sounds great. I’d be happy to discuss more."
-        :sender="false"
-      />
-      <PhoneMessage
-        msg="Could you send over some pictures of your dog, please?"
-        :sender="false"
-      />
-      <PhoneMessagePhoto
-        :imgs="['dog-image-1.jpg', 'dog-image-2.jpg', 'dog-image-3.jpg']"
-        :sender="true"
-        :class="'first'"
-      />
-      <PhoneMessage
-        msg="Here are a few pictures. She’s a happy girl!"
-        :sender="true"
-      />
-      <PhoneMessage msg="Can you make it?" :sender="true" />
-      <PhoneMessage
-        msg="She looks so happy! The time we discussed works. How long shall I take her out for?"
-        :sender="false"
-        :class="'first'"
-      />
-      <PhoneMessage
-        msg="30 minute walk"
-        :price="29"
-        :sender="false"
-        :radio="true"
-      />
-      <PhoneMessage
-        msg="1 hour walk"
-        :price="49"
-        :sender="false"
-        :radio="true"
-      />
+      <div class="content">
+        <PhoneMessage
+          msg="That sounds great. I’d be happy to discuss more."
+          :sender="false"
+        />
+        <PhoneMessage
+          msg="Could you send over some pictures of your dog, please?"
+          :sender="false"
+        />
+        <PhoneMessagePhoto
+          :imgs="['dog-image-1.jpg', 'dog-image-2.jpg', 'dog-image-3.jpg']"
+          :sender="true"
+          :class="'first'"
+        />
+        <PhoneMessage
+          msg="Here are a few pictures. She’s a happy girl!"
+          :sender="true"
+        />
+        <PhoneMessage msg="Can you make it?" :sender="true" />
+        <PhoneMessage
+          msg="She looks so happy! The time we discussed works. How long shall I take her out for?"
+          :sender="false"
+          :class="'first'"
+        />
+        <PhoneMessage
+          msg="30 minute walk"
+          :price="29"
+          :sender="false"
+          :radio="true"
+        />
+        <PhoneMessage
+          msg="1 hour walk"
+          :price="49"
+          :sender="false"
+          :radio="true"
+        />
+      </div>
       <WritingZone />
     </div>
   </section>
@@ -73,7 +75,7 @@ export default {
   position: relative;
   margin-bottom: 64px;
   box-shadow: 0px 30px 60px -10px rgba(62, 39, 83, 0.251202);
-  @include desktop{
+  @include desktop {
     margin-right: 125px;
   }
   .phone__top {
@@ -94,6 +96,12 @@ export default {
     border-radius: 20px;
     overflow: hidden;
   }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .writing-zone {

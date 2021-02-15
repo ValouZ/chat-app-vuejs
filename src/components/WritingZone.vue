@@ -1,14 +1,26 @@
 <template>
   <div class="writing-zone">
-    <textarea placeholder="Type a message..."></textarea>
-    <button class="button-send">
+    <textarea placeholder="Type a message..." v-model="msg"> </textarea>
+    <button class="button-send" @click="addMessage">
       <img src="../assets/arrow-send.svg" alt="Click me the send a message" />
     </button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "WritingZone",
+  data() {
+    return {
+      msg: "",
+    };
+  },
+  methods: {
+    addMessage() {
+      console.log(this.msg)
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -48,7 +60,7 @@ export default {};
   background: $main-heading;
   right: 5px;
   transition: 0.1s;
-  &:hover{
+  &:hover {
     opacity: 0.8;
   }
 }
