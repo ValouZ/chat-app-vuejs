@@ -11,7 +11,7 @@
         <div class="left__info">
           <h2>{{ name }}</h2>
           <p v-if="free">Available to Walk</p>
-          <p v-else>Unavalaible to Walk</p>
+          <p v-else>Unavalaible</p>
         </div>
       </div>
       <img src="../assets/dots.svg" alt="Tree dots to show more content" />

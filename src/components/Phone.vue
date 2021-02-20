@@ -4,41 +4,17 @@
     <div class="phone__screen">
       <UserTopSection name="Samuel Green" :free="true" />
       <div class="content">
-        <PhoneMessage
-          msg="That sounds great. I’d be happy to discuss more."
-          :sender="false"
-        />
-        <PhoneMessage
-          msg="Could you send over some pictures of your dog, please?"
-          :sender="false"
-        />
-        <PhoneMessagePhoto
+        <!-- <PhoneMessagePhoto
           :imgs="['dog-image-1.jpg', 'dog-image-2.jpg', 'dog-image-3.jpg']"
           :sender="true"
           :class="'first'"
-        />
+        /> -->
         <PhoneMessage
-          msg="Here are a few pictures. She’s a happy girl!"
-          :sender="true"
-        />
-        <PhoneMessage msg="Can you make it?" :sender="true" />
-        <PhoneMessage
-          msg="She looks so happy! The time we discussed works. How long shall I take her out for?"
-          :sender="false"
-          :class="'first'"
-        />
-        <PhoneMessage
-          msg="30 minute walk"
-          :price="29"
-          :sender="false"
-          :radio="true"
-        />
-        <PhoneMessage
-          msg="1 hour walk"
-          :price="49"
-          :sender="false"
-          :radio="true"
-        />
+          v-for="(message, i) in messages"
+          :data="message"
+          :index="i"
+          :key="message"
+        ></PhoneMessage>
       </div>
       <WritingZone />
     </div>
@@ -57,6 +33,11 @@ export default {
     PhoneMessagePhoto,
     WritingZone,
     UserTopSection,
+  },
+  computed: {
+    messages() {
+      return this.$store.state.messages;
+    },
   },
 };
 </script>

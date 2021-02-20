@@ -1,6 +1,6 @@
 <template>
   <div class="writing-zone">
-    <textarea placeholder="Type a message..." v-model="msg"> </textarea>
+    <textarea placeholder="Type a message..." v-model="msg"></textarea>
     <button class="button-send" @click="addMessage">
       <img src="../assets/arrow-send.svg" alt="Click me the send a message" />
     </button>
@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     addMessage() {
-      console.log(this.msg)
+      this.$store.commit("addMessage", this.msg); // Appel à VueX
     },
   },
 };

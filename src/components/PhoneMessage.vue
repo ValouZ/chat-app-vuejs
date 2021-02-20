@@ -1,76 +1,40 @@
 <template>
   <div
-    v-if="sender == false && radio == true"
-    :class="'message message--not-sender message--radio ' + firstClass[0]"
+    v-if="data.sender == false && data.radio == true"
+    :class="'message message--not-sender message--radio ' + data.class"
   >
-    <input name="time-not-sender" :id="'time' + countRadio" type="radio" />
-    <label class="radio" :for="'time' + countRadio">{{ msg }} </label>
-    <!-- Probleme d'id des label -->
+    <input name="time-not-sender" :id="'time' + index" type="radio" />
+    <label class="radio" :for="'time' + index">{{ data.msg }} </label>
     <div class="check"></div>
-    <p>${{ price }}</p>
+    <p>${{ data.price }}</p>
   </div>
   <div
-    v-if="sender == true && radio == true"
-    :class="'message message--sender message--radio ' + firstClass[0]"
+    v-else-if="data.sender == true && data.radio == true"
+    :class="'message message--sender message--radio ' + data.class"
   >
-    <input name="time-sender" id="time" type="radio" />
-    <label class="radio" for="time">{{ msg }} </label>
+    <input name="time-sender" :id="'time' + index" type="radio" />
+    <label class="radio" :for="'time' + index">{{ data.msg }} </label>
     <div class="check"></div>
-    <p>${{ price }}</p>
+    <p>${{ data.price }}</p>
   </div>
   <div
-    v-else-if="sender == false && radio == false"
-    :class="'message message--not-sender ' + firstClass[0]"
+    v-else-if="data.sender == false"
+    :class="'message message--not-sender ' + data.class"
   >
-    {{ msg }}
+    {{ data.msg }}
   </div>
   <div
-    v-else-if="sender == true && radio == false"
-    :class="'message message--sender ' + firstClass[0]"
+    v-else-if="data.sender == true"
+    :class="'message message--sender ' + data.class"
   >
-    {{ msg }}
+    {{ data.msg }}
   </div>
 </template>
 
 <script>
 export default {
   name: "PhoneMessage",
-  data() {
-    return {
-      countRadio: 0,
-    };
-  },
-  props: {
-    msg: {
-      type: String,
-      required: true,
-    },
-    price: Number,
-    sender: Boolean,
-    radio: Boolean,
-    class: String,
-  },
-  computed: {
-    // returns a list of 1 string referencing the class props
-    firstClass() {
-      let result = [];
-      // Look for all the component props and get an array of all its
-      // enumerable [key, value] pairs
-      for (let [propKey, propValue] of Object.entries(this.$props)) {
-        if (`${propKey}` == "class") {
-          // Add the prop to the class as '<key><value>'
-          // ie. xs prop with a value of 3 results in 'xs3'
-          result.push(`${propValue}`);
-        }
-      }
-      return result;
-    },
-  },
-  methods: {
-    increment() {
-      this.countRadio += 1;
-    },
-  },
+  props: ["data", "index"],
 };
 </script>
 
