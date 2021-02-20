@@ -47,6 +47,7 @@ export default {
   padding: 6px 8px;
   margin-bottom: $margin-phone-content;
   font-size: 8px;
+  word-wrap: break-word;
 
   &.message--not-sender {
     border-radius: 10px 10px 10px 4px;

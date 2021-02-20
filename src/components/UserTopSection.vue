@@ -30,6 +30,7 @@ export default {
 
 <style lang="scss" scoped>
 .user {
+  // position: fixed;
   background: linear-gradient(225deg, $light-magenta 0%, $light-violet 100%);
   width: 100%;
   height: 66px;
