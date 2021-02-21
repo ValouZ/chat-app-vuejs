@@ -12,9 +12,13 @@ export default createStore({
         sender: false,
       },
       {
-        msg: "Here are a few pictures. She’s a happy girl!",
+        imgs: ["dog-image-1.jpg", "dog-image-2.jpg", "dog-image-3.jpg"],
         sender: true,
         class: "first",
+      },
+      {
+        msg: "Here are a few pictures. She’s a happy girl!",
+        sender: true,
       },
       {
         msg: "Can you make it?",
@@ -42,8 +46,8 @@ export default createStore({
   },
   mutations: {
     addMessage(state, commit) {
-      let message = {msg: commit, sender: true};
-      if (state.messages[state.messages.length - 1].sender === false){
+      let message = { msg: commit, sender: true };
+      if (state.messages[state.messages.length - 1].sender === false) {
         message.class = "first";
       }
       state.messages.push(message);

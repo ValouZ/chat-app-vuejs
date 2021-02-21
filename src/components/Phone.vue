@@ -4,11 +4,6 @@
     <div class="phone__screen">
       <UserTopSection name="Samuel Green" :free="true" />
       <div class="content">
-        <!-- <PhoneMessagePhoto
-          :imgs="['dog-image-1.jpg', 'dog-image-2.jpg', 'dog-image-3.jpg']"
-          :sender="true"
-          :class="'first'"
-        /> -->
         <PhoneMessage
           v-for="(message, i) in messages"
           :data="message"
@@ -83,6 +78,8 @@ export default {
   display: flex;
   flex-direction: column;
   position: relative;
+  max-height: 73%;
+  overflow: hidden;
 }
 
 .writing-zone {

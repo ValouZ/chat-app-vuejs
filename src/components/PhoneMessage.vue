@@ -17,6 +17,7 @@
     <div class="check"></div>
     <p>${{ data.price }}</p>
   </div>
+  <PhoneMessagePhoto v-else-if="data.imgs" :data='data' />
   <div
     v-else-if="data.sender == false"
     :class="'message message--not-sender ' + data.class"
@@ -32,7 +33,9 @@
 </template>
 
 <script>
+import PhoneMessagePhoto from "./PhoneMessagePhoto.vue";
 export default {
+  components: { PhoneMessagePhoto },
   name: "PhoneMessage",
   props: ["data", "index"],
 };
