@@ -30,11 +30,9 @@ export default {
 
 <style lang="scss" scoped>
 .user {
-  // position: fixed;
   background: linear-gradient(225deg, $light-magenta 0%, $light-violet 100%);
   width: 100%;
   height: 66px;
-  margin-bottom: 11px;
   border-radius: 20px 20px 6px 6px;
   position: relative;
   .user__content {

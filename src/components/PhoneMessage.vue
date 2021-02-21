@@ -1,7 +1,7 @@
 <template>
   <div
-    v-if="data.sender == false && data.radio == true"
-    :class="'message message--not-sender message--radio ' + data.class"
+    v-if="!data.sender && data.radio"
+    :class="`message message--not-sender message--radio ${data.class || ''}`"
   >
     <input name="time-not-sender" :id="'time' + index" type="radio" />
     <label class="radio" :for="'time' + index">{{ data.msg }} </label>
@@ -9,8 +9,8 @@
     <p>${{ data.price }}</p>
   </div>
   <div
-    v-else-if="data.sender == true && data.radio == true"
-    :class="'message message--sender message--radio ' + data.class"
+    v-else-if="data.sender && data.radio"
+    :class="`message message--sender message--radio ${data.class || ''}`"
   >
     <input name="time-sender" :id="'time' + index" type="radio" />
     <label class="radio" :for="'time' + index">{{ data.msg }} </label>
@@ -19,14 +19,14 @@
   </div>
   <PhoneMessagePhoto v-else-if="data.imgs" :data="data" />
   <div
-    v-else-if="data.sender == false"
-    :class="'message message--not-sender ' + data.class"
+    v-else-if="!data.sender"
+    :class="`message message--not-sender ${data.class || ''}`"
   >
     {{ data.msg }}
   </div>
   <div
-    v-else-if="data.sender == true"
-    :class="'message message--sender ' + data.class"
+    v-else-if="data.sender"
+    :class="`message message--sender ${data.class || ''}`"
   >
     {{ data.msg }}
   </div>

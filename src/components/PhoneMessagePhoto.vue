@@ -1,16 +1,10 @@
 <template>
   <div
-    v-if="data.sender == true"
-    :class="'photos photos--sender ' + data.class"
+    :class="
+      `photos ${data.sender ? 'photos--sender' : 'photos--not-sender'} 
+      ${data.class || ''}`
+    "
   >
-    <img
-      :key="img"
-      v-for="img in data.imgs"
-      :src="require('../../src/assets/' + img)"
-      alt=""
-    />
-  </div>
-  <div v-else :class="'photos photos--not-sender ' + data.class">
     <img
       :key="img"
       v-for="img in data.imgs"

@@ -77,9 +77,11 @@ export default {
 .content {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   position: relative;
-  max-height: 73%;
+  max-height: 75%;
   overflow: hidden;
+  padding-top: 11px;
 }
 
 .writing-zone {
