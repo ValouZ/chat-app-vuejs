@@ -45,7 +45,7 @@ export default {
   height: 1018px;
   left: -322px;
   top: -509px;
-
+  background: linear-gradient(225deg, $light-magenta 0%, $light-violet 100%);
   border-radius: 255px;
   transition: 1s;
   @include desktop {
