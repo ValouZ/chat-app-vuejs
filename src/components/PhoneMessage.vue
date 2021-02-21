@@ -17,7 +17,7 @@
     <div class="check"></div>
     <p>${{ data.price }}</p>
   </div>
-  <PhoneMessagePhoto v-else-if="data.imgs" :data='data' />
+  <PhoneMessagePhoto v-else-if="data.imgs" :data="data" />
   <div
     v-else-if="data.sender == false"
     :class="'message message--not-sender ' + data.class"
@@ -50,7 +50,7 @@ export default {
   padding: 6px 8px;
   margin-bottom: $margin-phone-content;
   font-size: 8px;
-  word-wrap: break-word;
+  word-break: break-word;
 
   &.message--not-sender {
     border-radius: 10px 10px 10px 4px;

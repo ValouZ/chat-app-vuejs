@@ -1,5 +1,16 @@
 <template>
-  <div :class="'photos ' + data.class">
+  <div
+    v-if="data.sender == true"
+    :class="'photos photos--sender ' + data.class"
+  >
+    <img
+      :key="img"
+      v-for="img in data.imgs"
+      :src="require('../../src/assets/' + img)"
+      alt=""
+    />
+  </div>
+  <div v-else :class="'photos photos--not-sender ' + data.class">
     <img
       :key="img"
       v-for="img in data.imgs"
@@ -18,16 +29,24 @@ export default {
 
 <style lang="scss" scoped>
 .photos {
-  align-self: flex-end;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+
   img {
     width: 40px;
     height: 40px;
     border-radius: 10px;
     margin-right: $margin-phone-content;
     margin-bottom: $margin-phone-content;
+  }
+
+  &.photos--sender {
+    align-self: flex-end;
+    justify-content: flex-end;
+  }
+  &.photos--not-sender {
+    align-self: flex-start;
+    margin-left: $margin-phone-content;
   }
 }
 
