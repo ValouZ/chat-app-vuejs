@@ -42,7 +42,11 @@ export default createStore({
   },
   mutations: {
     addMessage(state, commit) {
-      state.messages.push({ msg: commit, sender: true });
+      let message = {msg: commit, sender: true};
+      if (state.messages[state.messages.length - 1].sender === false){
+        message.class = "first";
+      }
+      state.messages.push(message);
     },
   },
   actions: {},
